@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Registration System</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+ 
+<div>
+<h2 >Driver Registation</h2>
+<tr>
+    <div align = "left" >
+  <h3><a  th:href="@{'/Driver/addstudent'}">Add new</a></h3>    
+    </div>
+</tr>
+ 
+    <div class="col-sm-8" align = "center">
+    <div class="panel-body" align = "center" >
+          
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+           <th>Driver ID</th>
+            <th>Driver Name</th>
+            <th>Registration Plate</th>
+             <th>edit</th>
+             <th>delete</th>
+   </tr>
+  </thead>
+ 
+  <tbody>
+      <tr  th:each="driver : ${listdriver}">
+<td th:text="${driver.id}">Driver ID</td>
+<td th:text="${driver.drname}">Driver Name</td>
+<td th:text="${driver.registration_plate}">Registration</td>
+<td>
+<a th:href="@{'/Driver/edit/' + ${driver.id}}">Edit</a>
+</td>     
+<td>
+<a th:href="@{'/Driver/delete/' + ${driver.id}}">Delete</a>
+</td>     
+     </tr>
+  </tbody>
+</table>
+                  
+</div>
+</div>
+ 
+    </tr>
+ 
+</tbody>
+</table>
+<div>
+</body>
+</html>

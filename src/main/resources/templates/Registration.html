@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Registration System</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+ 
+</head>
+<body>
+<div>
+<h2 >Registration Creation</h2>
+<tr>
+<div align = "left" >
+<h3><a  th:href="@{'/Registration/addregistration'}">Add new</a>   
+</div>
+</tr>
+ 
+<div class="col-sm-8" align = "center">
+        <div class="panel-body" align = "center" >
+                
+                
+   <table class="table">
+<thead class="thead-dark">
+        <tr>
+            <th>Registration ID</th>
+            <th>Registration Plate</th>
+            <th>Duration</th>
+             <th>edit</th>
+             <th>delete</th>
+   </tr>
+  </thead>
+  <tbody>
+      <tr  th:each="registration : ${listregistration}">
+<td th:text="${registration.id}">Registration ID</td>
+<td th:text="${registration.registration_plate}">Registration Plate</td>
+<td th:text="${registration.duration}">Duration</td>
+ 
+<td>
+<a th:href="@{'/Registration/edit/' + ${registration.id}}">Edit</a>
+</td>     
+<td>
+<a th:href="@{'/Registration/delete/' + ${registration.id}}">Delete</a>
+</td>     
+</tr>
+  </tbody>
+  </table>                
+</div>
+</div>
+ 
+</tr>
+ 
+</tbody>
+</table>
+<div>
+ 
+</body>
+</html>

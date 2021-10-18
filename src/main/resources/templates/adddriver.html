@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Registration System</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+ 
+<div>
+<h2 >Driver Registration</h2>
+<tr>
+<div align = "center" >
+<h1>Create New Registration</h1>
+<br />
+  <div class="col-sm-4">
+  <form action="#" th:action="@{/Driver/save" th:object="${driver}" method="post"> 
+  
+  
+  <div alight="left">
+  <tr>
+  <label class="form-label" > Driver Name</label>
+  <td>
+  <input type="hidden" th:field="*{id}"  />
+  <input type="text" th:field="*{drname}" class="form-control" placeholder="Driver Name"  />
+  </td>
+  </tr>
+  </div>
+  
+  
+  <div alight="left">
+  <tr>
+  <label class="form-label">Registration</label>
+  <td>
+  <select name="registration" id="registration" class="form-control">
+  
+  
+  <option th:each="registration: ${listregistration}"
+          th:value="${registration.id}"
+          th:text="${registration.registration_plate}">
+          </option>
+          
+         </select>
+         </td>
+         </tr>
+         </div>
+         
+         
+         <div alight="left">
+         <tr>
+         <label class="form-label">Fee</label>
+         <td>
+         
+         <input type="text" th:field="*{fee}" class="form-control" placeholder="Fee"  />
+         </td>
+         </tr>
+         </div>
+         
+         
+         
+         <br>
+         <tr>
+         <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+         </tr>
+         
+         </form>
+         </div>
+         
+         </div>
+         </tr>
+         </div>
+         </body>
+         </html>
